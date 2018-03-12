@@ -13,7 +13,7 @@ npm i renamify-cli --save
 Edit files names in the `$EDITOR` of choice. Run:
 
 ```
-renamify
+$ renamify
 ```
 
 Edit file names in editor, save and exit. New names will be applied if names count hasn't changed.
@@ -21,7 +21,7 @@ It works in similar way to `git rebase -i`.
 
 ## Related
 
-- [Renamify](https://github.com/coderaiser/renamify "Renamify") - Rename group of files from a directory.
+- [renamify](https://github.com/coderaiser/renamify "renamify") - Rename group of files from a directory.
 
 ## License
 
