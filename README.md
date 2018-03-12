@@ -21,7 +21,7 @@ It works in similar way to `git rebase -i`.
 
 ## Related
 
-- [renamify](https://github.com/coderaiser/renamify "renamify") - Rename group of files from a directory.
+- [renamify](https://github.com/coderaiser/node-renamify "renamify") - Rename group of files from a directory.
 
 ## License
 
