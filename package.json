@@ -17,7 +17,8 @@
     "folder",
     "rename",
     "group",
-    "name"
+    "name",
+    "cli"
   ],
   "scripts": {
     "test": "tape test/*.js",
