@@ -1,0 +1,50 @@
+{
+  "name": "renamify-cli",
+  "version": "1.0.0",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "CLI tool for renaming group of files from a directory",
+  "homepage": "http://github.com/coderaiser/node-renamify-cli",
+  "main": "lib/renamify-cli.js",
+  "bin": {
+    "renamify": "bin/renamify-cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/node-renamify-cli.git"
+  },
+  "keywords": [
+    "file",
+    "folder",
+    "rename",
+    "group",
+    "name"
+  ],
+  "scripts": {
+    "test": "tape test/*.js",
+    "watcher": "nodemon -w test -w lib --exec",
+    "watch:test": "npm run watcher -- npm test",
+    "watch:coverage": "npm run watcher -- npm run coverage",
+    "lint": "eslint bin lib test",
+    "wisdom": "npm run build",
+    "clean": "rimraf legacy dist",
+    "coverage": "nyc npm test",
+    "report": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "dependencies": {
+    "renamify": "^1.1.0"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "coveralls": "^2.11.9",
+    "eslint": "^4.0.0",
+    "nodemon": "^1.17.1",
+    "nyc": "^11.0.2",
+    "redrun": "^5.9.4",
+    "sinon": "^4.4.3",
+    "sinon-called-with-diff": "^2.0.0",
+    "tape": "^4.5.1"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  }
+}
