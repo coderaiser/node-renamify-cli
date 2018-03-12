@@ -3,7 +3,6 @@
 'use strict';
 
 const {error} = console;
-const {join} = require('path');
 const {execSync} = require('child_process');
 const {
     readFileSync,
@@ -22,7 +21,6 @@ const {tmpdir} = require('os');
 const renamify = require('renamify');
 
 const {
-    cwd,
     EDITOR,
 } = process.env;
 
@@ -31,7 +29,7 @@ const names = readdirSync(dir)
 const tmpFile = writeTmpFileSync(tmpdir(), names.join('\n'));
 
 const editor = EDITOR || 'vim';
-const child = execSync(`${editor} ${tmpFile}`, {
+execSync(`${editor} ${tmpFile}`, {
     stdio: [0, 1, 2, 'pipe'],
 });
 
