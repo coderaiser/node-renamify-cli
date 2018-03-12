@@ -2,6 +2,8 @@
 
 'use strict';
 
+console.log(process.argv.slice(2));
+
 const {error} = console;
 const {execSync} = require('child_process');
 const {
