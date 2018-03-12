@@ -2,7 +2,14 @@
 
 'use strict';
 
-console.log(process.argv.slice(2));
+const arg = process.argv
+    .slice(2)
+    .pop();
+
+if (/^(-v|--version)$/.test(arg)) {
+    console.log(require('../package').version);
+    return;
+}
 
 const {error} = console;
 const {execSync} = require('child_process');
