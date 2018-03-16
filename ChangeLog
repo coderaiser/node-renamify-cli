@@ -1,3 +1,9 @@
+2018.03.16, v1.1.0
+
+feature:
+- (renamify) add ability to remove tmp dir after rename
+
+
 2018.03.12, v1.0.1
 
 fix:
