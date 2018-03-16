@@ -11,6 +11,9 @@ if (/^(-v|--version)$/.test(arg)) {
     return;
 }
 
+const {join} = require('path');
+const rimraf = require('rimraf');
+
 const {error} = console;
 const {execSync} = require('child_process');
 const {
@@ -35,7 +38,9 @@ const {
 
 const dir = process.cwd();
 const names = readdirSync(dir)
-const tmpFile = writeTmpFileSync(tmpdir(), names.join('\n'));
+
+const tmpDir = mkdtempSync(join(tmpdir(), 'renamify'));
+const tmpFile = writeTmpFileSync(tmpDir, names.join('\n'));
 
 const editor = EDITOR || 'vim';
 execSync(`${editor} ${tmpFile}`, {
@@ -46,10 +51,12 @@ const newNames = readFileSync(tmpFile, 'utf8')
     .replace(/\n$/, '')
     .split('\n')
 
-renamify(dir, names, newNames, logIfError);
+renamify(dir, names, newNames, (e) => {
+    rimraf.sync(tmpDir);
+    logError(e);
+});
 
-function logIfError(e) {
+function logError(e) {
     if (e)
         error(e.message)
 }
-

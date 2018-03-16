@@ -8,41 +8,19 @@ const {
     writeTmpFileSync,
 } = require('..');
 
-test('renamify-cli: mkdtempSync', (t) => {
-    const writeFileSync = sinon.stub();
-    const mkdtempSync = sinon
-        .stub()
-        .returns('');
-    
-    const writeFile = writeTmpFileSync({
-        writeFileSync,
-        mkdtempSync
-    });
-    
-    writeFile('/', 'hello');
-    
-    t.ok(mkdtempSync.calledWith('/renamify'), 'should call mkdtempSync');
-    t.end();
-});
-
 test('renamify-cli: readdirSync', (t) => {
     const tmpdir = '/tmpdir';
     const writeFileSync = sinon.stub();
-    const mkdtempSync = sinon
-        .stub()
-        .returns(tmpdir);
-    
     const writeFile = writeTmpFileSync({
         writeFileSync,
-        mkdtempSync
     });
     
     const data = 'hello';
-    writeFile('/', data);
+    writeFile(tmpdir, data);
     
     const expected = [
         `${tmpdir}/renamify`,
-        data
+        data,
     ];
     
     t.ok(writeFileSync.calledWith(...expected), 'should call mkdtempSync');
