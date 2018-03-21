@@ -43,7 +43,7 @@
     "eslint": "^4.0.0",
     "nodemon": "^1.17.1",
     "nyc": "^11.0.2",
-    "redrun": "^5.9.4",
+    "redrun": "^6.0.1",
     "sinon": "^4.4.3",
     "sinon-called-with-diff": "^2.0.0",
     "tape": "^4.5.1"
