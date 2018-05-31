@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "currify": "^2.0.6",
-    "renamify": "^1.1.0"
+    "renamify": "^2.0.0"
   },
   "license": "MIT",
   "devDependencies": {
