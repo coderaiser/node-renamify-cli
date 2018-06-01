@@ -28,8 +28,6 @@
     "lint": "redrun lint:*",
     "lint:lib": "eslint lib test",
     "lint:bin": "eslint --rule 'no-console:0' bin",
-    "wisdom": "npm run build",
-    "clean": "rimraf legacy dist",
     "coverage": "nyc npm test",
     "report": "nyc report --reporter=text-lcov | coveralls"
   },
