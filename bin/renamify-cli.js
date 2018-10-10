@@ -51,12 +51,12 @@ const newNames = readFileSync(tmpFile, 'utf8')
     .replace(/\n$/, '')
     .split('\n')
 
-renamify(dir, names, newNames, (e) => {
-    rimraf.sync(tmpDir);
-    logError(e);
-});
+const rmTmp = () => rimraf.sync(tmpDir);
+
+renamify(dir, names, newNames)
+    .then(rmTmp)
+    .catch(logError);
 
 function logError(e) {
-    if (e)
-        error(e.message)
+    error(e.message)
 }
