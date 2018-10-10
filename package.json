@@ -32,7 +32,7 @@
     "report": "nyc report --reporter=text-lcov | coveralls"
   },
   "dependencies": {
-    "currify": "^2.0.6",
+    "currify": "^3.0.0",
     "renamify": "^3.0.1",
     "rimraf": "^2.6.2"
   },
