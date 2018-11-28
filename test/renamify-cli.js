@@ -1,8 +1,7 @@
 'use strict';
 
 const test = require('tape');
-const diff = require('sinon-called-with-diff');
-const sinon = diff(require('sinon'));
+const stub = require('@cloudcmd/stub');
 
 const {
     writeTmpFileSync,
@@ -10,7 +9,7 @@ const {
 
 test('renamify-cli: readdirSync', (t) => {
     const tmpdir = '/tmpdir';
-    const writeFileSync = sinon.stub();
+    const writeFileSync = stub();
     const writeFile = writeTmpFileSync({
         writeFileSync,
     });
