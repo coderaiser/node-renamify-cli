@@ -40,7 +40,7 @@
   "devDependencies": {
     "@cloudcmd/stub": "^4.0.1",
     "coveralls": "^3.0.0",
-    "eslint": "^5.0.0",
+    "eslint": "^9.22.0",
     "nodemon": "^1.17.1",
     "nyc": "^13.0.1",
     "redrun": "^7.0.2",
