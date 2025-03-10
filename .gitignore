@@ -7,3 +7,6 @@ dist
 
 *.swp
 
+.idea
+yarn-error.log
+coverage

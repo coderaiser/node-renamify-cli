@@ -1,12 +1,10 @@
-# Renamify CLI [![License][LicenseIMGURL]][LicenseURL] [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL] [![Coverage Status][CoverageIMGURL]][CoverageURL]
+# Renamify CLI [![License][LicenseIMGURL]][LicenseURL] [![NPM version][NPMIMGURL]][NPMURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL] [![Coverage Status][CoverageIMGURL]][CoverageURL]
 
 Rename group of files from a directory with help of an editor.
 
 ## Install
 
-`
-npm i renamify-cli --save
-`
+`npm i renamify-cli --save`
 
 ## Usage
 
@@ -27,15 +25,11 @@ It works in similar way to `git rebase -i`.
 
 MIT
 
-[NPMIMGURL]:                https://img.shields.io/npm/v/renamify-cli.svg?style=flat
-[BuildStatusIMGURL]:        https://img.shields.io/travis/coderaiser/node-renamify-cli/master.svg?style=flat
-[DependencyStatusIMGURL]:   https://img.shields.io/david/coderaiser/node-renamify-cli.svg?style=flat
-[LicenseIMGURL]:            https://img.shields.io/badge/license-MIT-317BF9.svg?style=flat
-[NPMURL]:                   https://npmjs.org/package/renamify-cli "npm"
-[BuildStatusURL]:           https://travis-ci.org/coderaiser/node-renamify-cli  "Build Status"
-[DependencyStatusURL]:      https://david-dm.org/coderaiser/node-renamify-cli "Dependency Status"
-[LicenseURL]:               https://tldrlegal.com/license/mit-license "MIT License"
-
-[CoverageURL]:              https://coveralls.io/github/coderaiser/node-renamify-cli?branch=master
-[CoverageIMGURL]:           https://coveralls.io/repos/coderaiser/node-renamify-cli/badge.svg?branch=master&service=github
-
+[NPMIMGURL]: https://img.shields.io/npm/v/renamify-cli.svg?style=flat
+[BuildStatusIMGURL]: https://img.shields.io/travis/coderaiser/node-renamify-cli/master.svg?style=flat
+[LicenseIMGURL]: https://img.shields.io/badge/license-MIT-317BF9.svg?style=flat
+[NPMURL]: https://npmjs.org/package/renamify-cli "npm"
+[BuildStatusURL]: https://travis-ci.org/coderaiser/node-renamify-cli "Build Status"
+[LicenseURL]: https://tldrlegal.com/license/mit-license "MIT License"
+[CoverageURL]: https://coveralls.io/github/coderaiser/node-renamify-cli?branch=master
+[CoverageIMGURL]: https://coveralls.io/repos/coderaiser/node-renamify-cli/badge.svg?branch=master&service=github

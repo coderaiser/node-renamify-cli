@@ -1,27 +1,30 @@
 #!/usr/bin/env node
 
-'use strict';
-
-const arg = process.argv
-    .slice(2)
-    .pop();
-
-if (/^(-v|--version)$/.test(arg)) {
-    console.log(require('../package').version);
-    return;
-}
-
-const {join} = require('path');
-const rimraf = require('rimraf');
-
-const {error} = console;
-const {execSync} = require('child_process');
-const {
+import {createRequire} from 'node:module';
+import process from 'node:process';
+import {join} from 'node:path';
+import {execSync} from 'node:child_process';
+import {tmpdir} from 'node:os';
+import {
     readFileSync,
     writeFileSync,
     mkdtempSync,
     readdirSync,
-} = require('fs');
+} from 'node:fs';
+import {rimraf} from 'rimraf';
+import renamify from 'renamify';
+
+const require = createRequire(import.meta.url);
+const arg = process
+    .argv
+    .slice(2)
+    .pop();
+
+if (/^(-v|--version)$/.test(arg)) {
+    const require = createRequire(import.meta.url);
+    console.log(require('../package').version);
+    process.exit();
+}
 
 const writeTmpFileSync = require('..').writeTmpFileSync({
     readFileSync,
@@ -29,27 +32,29 @@ const writeTmpFileSync = require('..').writeTmpFileSync({
     mkdtempSync,
 });
 
-const {tmpdir} = require('os');
-const renamify = require('renamify');
+const {error} = console;
 
-const {
-    EDITOR,
-} = process.env;
+const {EDITOR} = process.env;
 
 const dir = process.cwd();
-const names = readdirSync(dir)
+const names = readdirSync(dir);
 
 const tmpDir = mkdtempSync(join(tmpdir(), 'renamify'));
 const tmpFile = writeTmpFileSync(tmpDir, names.join('\n'));
 
 const editor = EDITOR || 'vim';
 execSync(`${editor} ${tmpFile}`, {
-    stdio: [0, 1, 2, 'pipe'],
+    stdio: [
+        0,
+        1,
+        2,
+        'pipe',
+    ],
 });
 
 const newNames = readFileSync(tmpFile, 'utf8')
     .replace(/\n$/, '')
-    .split('\n')
+    .split('\n');
 
 const rmTmp = () => rimraf.sync(tmpDir);
 
@@ -58,5 +63,5 @@ renamify(dir, names, newNames)
     .catch(logError);
 
 function logError(e) {
-    error(e.message)
+    error(e.message);
 }

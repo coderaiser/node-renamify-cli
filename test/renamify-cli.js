@@ -1,11 +1,5 @@
-'use strict';
-
-const test = require('tape');
-const stub = require('@cloudcmd/stub');
-
-const {
-    writeTmpFileSync,
-} = require('..');
+import {test, stub} from 'supertape';
+import {writeTmpFileSync} from '../lib/renamify-cli.js';
 
 test('renamify-cli: readdirSync', (t) => {
     const tmpdir = '/tmpdir';
@@ -15,6 +9,7 @@ test('renamify-cli: readdirSync', (t) => {
     });
     
     const data = 'hello';
+    
     writeFile(tmpdir, data);
     
     const expected = [
@@ -22,7 +17,6 @@ test('renamify-cli: readdirSync', (t) => {
         data,
     ];
     
-    t.ok(writeFileSync.calledWith(...expected), 'should call mkdtempSync');
+    t.calledWith(writeFileSync, expected, 'should call mkdtempSync');
     t.end();
 });
-

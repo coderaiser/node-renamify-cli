@@ -4,3 +4,6 @@ test
 
 *.swp
 
+yarn-error.log
+coverage
+*.config.*
