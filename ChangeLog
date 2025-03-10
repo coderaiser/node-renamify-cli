@@ -1,3 +1,8 @@
+2025.03.10, v3.0.3
+
+feature:
+- 5c8e221 renamify-cli: asyncify
+
 2025.03.10, v3.0.2
 
 fix:
