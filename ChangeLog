@@ -1,3 +1,8 @@
+2025.03.10, v3.0.4
+
+feature:
+- de38858 renamify-cli: rm rimraf
+
 2025.03.10, v3.0.3
 
 feature:
