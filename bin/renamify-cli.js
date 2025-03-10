@@ -57,9 +57,12 @@ const newNames = readFileSync(tmpFile, 'utf8')
 
 const rmTmp = () => rimraf.sync(tmpDir);
 
-renamify(dir, names, newNames)
-    .then(rmTmp)
-    .catch(logError);
+const [error] = await tryToCatch(renamify, dir, names, newNames)
+
+if (error)
+    logError(error);
+
+await rmTmpa()
 
 function logError(e) {
     error(e.message);
