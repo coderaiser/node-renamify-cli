@@ -42,6 +42,7 @@
     "coveralls": "^3.0.0",
     "eslint": "^9.22.0",
     "nodemon": "^3.1.9",
+    "redlint": "^3.19.1",
     "redrun": "^11.1.0",
     "supertape": "^10.10.0"
   },
