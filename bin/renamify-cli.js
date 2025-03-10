@@ -13,8 +13,8 @@ import {
 } from 'node:fs';
 import {rimraf} from 'rimraf';
 import renamify from 'renamify';
+import {writeTmpFileSync} from '../lib/renamify-cli.js';
 
-const require = createRequire(import.meta.url);
 const arg = process
     .argv
     .slice(2)
@@ -26,21 +26,20 @@ if (/^(-v|--version)$/.test(arg)) {
     process.exit();
 }
 
-const writeTmpFileSync = require('..').writeTmpFileSync({
+const write = writeTmpFileSync({
     readFileSync,
     writeFileSync,
     mkdtempSync,
 });
 
 const {error} = console;
-
 const {EDITOR} = process.env;
 
 const dir = process.cwd();
 const names = readdirSync(dir);
 
 const tmpDir = mkdtempSync(join(tmpdir(), 'renamify'));
-const tmpFile = writeTmpFileSync(tmpDir, names.join('\n'));
+const tmpFile = write(tmpDir, names.join('\n'));
 
 const editor = EDITOR || 'vim';
 execSync(`${editor} ${tmpFile}`, {

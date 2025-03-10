@@ -33,4 +33,3 @@ It works in similar way to `git rebase -i`.
 ## License
 
 MIT
-
