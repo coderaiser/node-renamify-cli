@@ -5,14 +5,15 @@ import process from 'node:process';
 import {join} from 'node:path';
 import {execSync} from 'node:child_process';
 import {tmpdir} from 'node:os';
+import {rm} from 'node:fs/promises';
 import {
     readFileSync,
     writeFileSync,
     mkdtempSync,
     readdirSync,
 } from 'node:fs';
-import {rimraf} from 'rimraf';
 import renamify from 'renamify';
+import tryToCatch from 'try-to-catch';
 import {writeTmpFileSync} from '../lib/renamify-cli.js';
 
 const arg = process
@@ -32,7 +33,6 @@ const write = writeTmpFileSync({
     mkdtempSync,
 });
 
-const {error} = console;
 const {EDITOR} = process.env;
 
 const dir = process.cwd();
@@ -55,15 +55,15 @@ const newNames = readFileSync(tmpFile, 'utf8')
     .replace(/\n$/, '')
     .split('\n');
 
-const rmTmp = () => rimraf.sync(tmpDir);
-
-const [error] = await tryToCatch(renamify, dir, names, newNames)
+const [error] = await tryToCatch(renamify, dir, names, newNames);
 
 if (error)
     logError(error);
 
-await rmTmpa()
+await rm(tmpDir, {
+    recursive: true,
+});
 
 function logError(e) {
-    error(e.message);
+    console.error(e.message);
 }
