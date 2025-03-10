@@ -1,3 +1,21 @@
+2025.03.10, v3.0.0
+
+feature:
+- c7ee09d renamify-cli: drop support of node < 18
+- 1fd8ca1 renamify-cli: eslint-plugin-putout v25.1.2
+- 162771b renamify-cli: redlint v3.19.1
+- a5055e9 renamify-cli: convert to ESM
+- ad7a3eb renamify-cli: c8 v10.1.3
+- 7ae1d31 renamify-cli: tape v5.9.0
+- 5a3a20a renamify-cli: rimraf v6.0.1
+- 7549263 renamify-cli: redrun v11.1.0
+- ad99b3d renamify-cli: nyc v17.1.0
+- 2cbc5e3 renamify-cli: nodemon v3.1.9
+- 33b9129 renamify-cli: eslint v9.22.0
+- c635709 renamify-cli: currify v4.0.0
+- 2b46214 renamify-cli: @cloudcmd/stub v4.0.1
+- 590b7d6 (package) sinon, sinon-called-with-diff -> @cloudcmd/stub
+
 2018.10.10, v2.0.0
 
 feature:
