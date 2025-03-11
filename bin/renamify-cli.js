@@ -16,6 +16,8 @@ import renamify from 'renamify';
 import tryToCatch from 'try-to-catch';
 import {writeTmpFileSync} from '../lib/renamify-cli.js';
 
+const joinOne = (a) => (b) => join(a, b);
+
 const arg = process
     .argv
     .slice(2)
@@ -36,7 +38,11 @@ const write = writeTmpFileSync({
 const {EDITOR} = process.env;
 
 const dir = process.cwd();
-const names = readdirSync(dir);
+let names = readdirSync(dir);
+
+if (arg === '--full') {
+    names = names.map(joinOne(dir));
+}
 
 const tmpDir = mkdtempSync(join(tmpdir(), 'renamify'));
 const tmpFile = write(tmpDir, names.join('\n'));

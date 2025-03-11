@@ -26,6 +26,12 @@ $ renamify
 Edit file names in editor, save and exit. New names will be applied if names count hasn't changed.
 It works in similar way to `git rebase -i`.
 
+To edit full names use:
+
+```
+$ renamify --full
+```
+
 ## Related
 
 - [renamify](https://github.com/coderaiser/node-renamify "renamify") - Rename group of files from a directory.
