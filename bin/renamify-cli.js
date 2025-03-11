@@ -40,12 +40,12 @@ const {EDITOR} = process.env;
 const dir = process.cwd();
 let names = readdirSync(dir);
 
-if (arg === '--full') {
+if (arg === '--full')
     names = names.map(joinOne(dir));
-}
 
 const tmpDir = mkdtempSync(join(tmpdir(), 'renamify'));
-const tmpFile = write(tmpDir, names.join('\n'));
+const namesFile = names.join('\n');
+const tmpFile = write(tmpDir, namesFile);
 
 const editor = EDITOR || 'vim';
 execSync(`${editor} ${tmpFile}`, {
@@ -57,7 +57,17 @@ execSync(`${editor} ${tmpFile}`, {
     ],
 });
 
-const newNames = readFileSync(tmpFile, 'utf8')
+const newFile = readFileSync(tmpFile, 'utf8');
+
+await rm(tmpDir, {
+    recursive: true,
+});
+
+if (newFile === namesFile) {
+    process.exit();
+}
+
+const newNames = newFile
     .replace(/\n$/, '')
     .split('\n');
 
@@ -65,10 +75,6 @@ const [error] = await tryToCatch(renamify, dir, names, newNames);
 
 if (error)
     logError(error);
-
-await rm(tmpDir, {
-    recursive: true,
-});
 
 function logError(e) {
     console.error(e.message);
