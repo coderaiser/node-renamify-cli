@@ -30,9 +30,7 @@ if (/^(-v|--version)$/.test(arg)) {
 }
 
 const write = writeTmpFileSync({
-    readFileSync,
     writeFileSync,
-    mkdtempSync,
 });
 
 const {EDITOR} = process.env;
@@ -63,9 +61,8 @@ await rm(tmpDir, {
     recursive: true,
 });
 
-if (newFile === namesFile) {
+if (newFile === namesFile)
     process.exit();
-}
 
 const newNames = newFile
     .replace(/\n$/, '')
