@@ -13,13 +13,12 @@ import {
     readdirSync,
 } from 'node:fs';
 import renamify from 'renamify';
-import tryToCatch from 'try-to-catch';
+import {tryToCatch} from 'try-to-catch';
 import {writeTmpFileSync} from '../lib/renamify-cli.js';
 
 const joinOne = (a) => (b) => join(a, b);
 
-const arg = process
-    .argv
+const arg = process.argv
     .slice(2)
     .pop();
 

@@ -1,12 +1,11 @@
-node_modules
-npm-debug.log
-.nyc_output
+*.swp
+*.log
+*.lock
 
+.nyc_output
+.idea
+
+node_modules
 legacy
 dist
-
-*.swp
-
-.idea
-yarn-error.log
 coverage

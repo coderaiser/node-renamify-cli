@@ -1,9 +1,10 @@
-dist
-test
+*.swp
+*.config.*
+*.log
+*.loc
+
 .*
 
-*.swp
-
-yarn-error.log
+dist
+test
 coverage
-*.config.*
