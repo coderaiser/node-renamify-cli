@@ -1,3 +1,16 @@
+2026.02.18, v4.0.0
+
+feature:
+- 35e69f9 renamify-cli: try-to-catch v4.0.5
+- 506ea9b renamify-cli: supertape v12.5.0
+- b363478 renamify-cli: renamify v5.0.0
+- f0961c6 renamify-cli: redrun v13.0.1
+- f15b8d2 renamify-cli: redlint v6.0.0
+- 0e98b4a renamify-cli: madrun v13.0.0
+- 04b61b2 renamify-cli: eslint-plugin-putout v31.0.0
+- 5dcea9d renamify-cli: eslint v10.0.0
+- b88ed30 renamify-cli: drop support of node < 22
+
 2025.03.12, v3.1.2
 
 fix:
